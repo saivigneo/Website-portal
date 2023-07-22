@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Consensus Academy Attendance Dashboard </title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+<style>
+/*  import google fonts */
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Josefin-Sans", sans-serif;
+}
+
+body {
+  background: #f1efef;
+  color: #000000;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  width: 90px;
+  /* width: 280px; */
+  background: #fffbfb;
+  overflow: hidden;
+  transition: 1s;
+}
+
+nav:hover {
+  width: 280px;
+  transition: 1s;
+}
+
+.logo {
+  text-align: center;
+  display: flex;
+  margin: 10px 0 0 10px;
+  padding-bottom: 3rem;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.logo span {
+    Output the (signed) size of the range [ N, 1000-N ]
+Input
+The integer N
+Output
+one integer
+Constraints
+0 ≤ N ≤ 1000
+Example
+Input
+15
+Output
+970
+
+ int size = (1000 - n) * 2;
+  System.out.println(size);
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+a {
+  position: relative;
+  width: 280px;
+  font-size: 14px;
+  color: #302c2c;
+  display: table;
+  padding: 10px;
+}
+
+nav .fas {
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-item {
+  position: relative;
+  top: 12px;
+  margin-left: 15px;
+}
+
+a:hover {
+  background: #8f0e94;
+}
+
+a:hover {
+  color: rgba(41, 42, 43, 0.726)24);
+  transition: 0.5s;
+}
+
+.logout {
+  position: absolute;
+  bottom: 25px;
+}
+
+.container {
+  display: flex;
+}
+
+/* MAin Section */
+.main {
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+
+.main-top {
+  display: flex;
+  width: 100%;
+}
+
+.main-top i {
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(94, 91, 91);
+  cursor: pointer;
+}
+
+.main .users {
+  display: flex;
+  width: 100%;
+}
+
+.users .card {
+  width: 50%;
+  margin: 10px;
+  background: #ffffff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(165, 72, 72, 0.1);
+}
+
+.users .card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.users .card h4 {
+  text-transform: uppercase;
+}
+
+.users .card p {
+  font-size: 12px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.users table {
+  margin: auto;
+}
+
+.users .per span {
+  padding: 5px;
+  border-radius: 10px;
+  background: rgb(133, 133, 133);
+}
+
+.users td {
+  font-size: 14px;
+  padding-right: 15px;
+}
+
+.users .card button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: #b6b1b1;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.users .card button:hover {
+  background: rgb(228, 216, 230);
+  color: #a5007c;
+  transition: 0.5s;
+}
+
+.users .card :hover {
+    transform: scale(1);
+}
+
+.users :hover {
+    transform: scale(1.1);
+}
+
+/*Attendance List section  */
+.attendance {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.attendance-list {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(27, 27, 27, 0.1)
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 15px;
+  min-width: 100%;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+
+table thead tr {
+  color: #dacdcd;
+  background: rgb(76, 3, 78);
+  text-align: left;
+  font-weight: bold;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #555;
+}
+
+.table tbody tr:nth-of-type(odd) {
+  background: #a8a6a6;
+}
+
+.table tbody tr.active {
+  font-weight: bold;
+  color: rgb(93, 5, 110);
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(97, 5, 116);
+}
+
+.table button {
+  padding: 6px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgb(82, 5, 112);
+}
+
+.table button:hover {
+  background: rgb(110, 4, 119);
+  color: #000000;
+  transition: 0.5rem;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgEmOiAi5IREgjs-TZg65k_0xjFqmH4K-xYw&usqp=CAU">
+          <span class="nav-item">Admin</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-menorah"></i>
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-comment"></i>
+          <span class="nav-item">Message</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-database"></i>
+          <span class="nav-item">Report</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-chart-bar"></i>
+          <span class="nav-item">Attendance</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item">Setting</span>
+        </a></li>
+
+        <li><a href="#" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+    
+    <section class="main">
+      <div class="main-top">
+        <h1>Consensus Academy</h1>
+        <i class="fas fa-user-cog"></i>
+      </div>
+      <div class="users">
+        <div class="card">
+          <img src="data:image/jpeg;base64,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">
+          <h4>Sai Vignesh</h4>
+          <p>Software Developer</p>
+          <div class="per">
+            <table>
+              <tr>
+                <td><span>97%</span></td>
+                <td><span>95%</span></td>
+              </tr>
+              <tr>
+                <td>Month</td>
+                <td>Year</td>
+              </tr>
+            </table>
+          </div>
+          <button>Profile</button>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY4M9AgHE30TKIvFP7gyJTGr2WrOsUpOJjVw&usqp=CAU">
+          <h4>Sai Vignesh</h4>
+          <p>Assoicate Mentor</p>
+          <div class="per">
+            <table>
+              <tr>
+                <td><span>95%</span></td>
+                <td><span>94%</span></td>
+              </tr>
+              <tr>
+                <td>Month</td>
+                <td>Year</d>
+              </tr>
+            </table>
+          </div>
+          <button>Profile</button>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSka8ypEzq4yINir4e_PdFTP3CBRBVReJAyew&usqp=CAU">
+          <h4>sv</h4>
+          <p>Software Developer</p>
+          <div class="per">
+            <table>
+              <tr>
+                <td><span>84%</span></td>
+                <td><span>12%</span></td>
+              </tr>
+              <tr>
+                <td>Month</td>
+                <td>Year</td>
+              </tr>
+            </table>
+          </div>
+          <button>Profile</button>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaiibfj8vazQvlEDPUJzC36huDhRhzUn048J56c0mlIZfGqkqQ3KKvcfJcdRLX0vT3_4M&usqp=CAU">
+          <h4>Vignesh</h4>
+          <p>Senior Associate Mentor</p>
+          <div class="per">
+            <table>
+              <tr>
+                <td><span>13%</span></td>
+                <td><span>1%</span></td>
+              </tr>
+              <tr>
+                <td>Month</td>
+                <td>Year</td>
+              </tr>
+            </table>
+          </div>
+          <button>Profile</button>
+        </div>
+      </div>
+
+      <section class="attendance">
+        <div class="attendance-list">
+          <h1>Attendance List</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Date</th>
+                <th>Login Time</th>
+                <th>Logout Time</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Sai Vignesh</td>
+                <td>Development</td>
+                <td>06-13-23</td>
+                <td>8:00AM</td>
+                <td>3:00PM</td>
+                <td><button>View</button></td>
+              </tr>
+              <tr class="active">
+                <td>02</td>
+                <td>Sv</td>
+                <td>Training</td>
+                <td>06-13-23</td>
+                <td>9:00AM</td>
+                <td>4:00PM</td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>03</td>
+                <td>SV</td>
+                <td>Testing</td>
+                <td>06-13-23</td>
+                <td>8:00AM</td>
+                <td>3:00PM</td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>04</td>
+                <td>Sai Vignesh</td>
+                <td>Development</td>
+                <td>06-13-23</td>
+                <td>8:00AM</td>
+                <td>3:00PM</td>
+                <td><button>View</button></td>
+              </tr>     
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </div>
+
+</body>
+</html>
